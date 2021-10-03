@@ -1,10 +1,10 @@
 class ProductDataModel{
-  int? id;
-  String? name;
-  String? company;
-  String? imageURL;
-  String? description;
-  String? price;
+  final String id;
+  final String name;
+  final String company;
+  final String imageURL;
+  final String description;
+  final String price;
 
   ProductDataModel(
       {
@@ -16,13 +16,24 @@ class ProductDataModel{
         this.price
       });
 
-  ProductDataModel.fromJson(Map<String,dynamic> json)
-  {
-    id = json['id'];
-    name =json['name'];
-    company = json['company'];
-    imageURL = json['imageUrl'];
-    description = json['description'];
-    price = json['price'];
+  factory ProductDataModel.fromJson(Map<String, dynamic> json) {
+    return ProductDataModel(
+      id: json['id'],
+      name: json['name'],
+      company: json['company'],
+      imageURL: json['imageURL'],
+      description: json['description'],
+      price: json['price']
+    );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'company': company,
+      'imageURL': imageURL,
+      'description': description,
+      'price': price,
+    };
   }
 }

@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.11.0 <3.0.0"
 
 dependencies:
   http:
@@ -29,12 +29,12 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  google_fonts: ^1.1.0
   shimmer: ^1.1.1
   flutter_typeahead: ^1.8.7
   timeago: ^2.0.26
   charts_flutter: ^0.9.0
   provider: ^4.3.2
+  dio: ^4.0.0
 
 
 dev_dependencies:
@@ -66,8 +66,6 @@ flutter:
      - assets/images/hospital.png
      - assets/images/news.png
      - assets/images/setting.png
-     - assets/raw/
-     - assets/jsonfile/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

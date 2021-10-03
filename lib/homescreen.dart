@@ -4,7 +4,6 @@ import 'package:tiemchungvacxin/covid_statistic/country_statistic.dart';
 import 'package:tiemchungvacxin/covid_statistic/service.dart';
 import 'package:http/http.dart' as http;
 import 'package:tiemchungvacxin/pages/danhmucvacxin.dart';
-import 'package:tiemchungvacxin/pages/danhmucvacxin.dart';
 import 'dart:convert';
 
 import 'pages/chungnhanpage.dart';
@@ -109,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 onTap: (){
                                   Navigator.of(context).push(
                                       MaterialPageRoute(
-                                          builder: (context) => Prodcut(),
+                                          builder: (context) => MyAp(),
                                       )
                                   );
                                 },
@@ -191,7 +190,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                   InkWell(
                                     onTap: (){
                                       Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => Prodcut()
+                                        MaterialPageRoute(builder: (BuildContext context) => MyAp(),
 
                                         )
                                       );
@@ -226,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => Prodcut()
+                                        MaterialPageRoute(builder: (BuildContext context) => MyAp(),
 
                                         )
                                     );
@@ -259,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => Prodcut()
+                                        MaterialPageRoute(builder: (BuildContext context) => MyAp()
 
                                         )
                                     );
@@ -292,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => Prodcut()
+                                        MaterialPageRoute(builder: (BuildContext context) => MyAp(),
 
                                         )
                                     );
