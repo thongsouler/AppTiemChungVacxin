@@ -1,39 +1,53 @@
-class ProductDataModel{
-  final String id;
-  final String name;
-  final String company;
-  final String imageURL;
-  final String description;
-  final String price;
+class VacxinModel {
+  String tenVaccin;
+  String hangSanXuat;
+  String quocGia;
+  String loaiVaccin;
+  String doiTuongTiem;
+  int soMuiTiem;
+  int khoangCachTiem;
 
-  ProductDataModel(
-      {
-        this.id,
-        this.name,
-        this.company,
-        this.imageURL,
-        this.description,
-        this.price
-      });
+  VacxinModel(
+      {this.tenVaccin,
+        this.hangSanXuat,
+        this.quocGia,
+        this.loaiVaccin,
+        this.doiTuongTiem,
+        this.soMuiTiem,
+        this.khoangCachTiem});
 
-  factory ProductDataModel.fromJson(Map<String, dynamic> json) {
-    return ProductDataModel(
-      id: json['id'],
-      name: json['name'],
-      company: json['company'],
-      imageURL: json['imageURL'],
-      description: json['description'],
-      price: json['price']
-    );
-  }
+  // VacxinModel.fromJson(Map<String, dynamic> json) {
+  //   tenVaccin = json['tenVaccin'];
+  //   hangSanXuat = json['hangSanXuat'];
+  //   quocGia = json['quocGia'];
+  //   loaiVaccin = json['loaiVaccin'];
+  //   doiTuongTiem = json['doiTuongTiem'];
+  //   soMuiTiem = json['soMuiTiem'];
+  //   khoangCachTiem = json['khoangCachTiem'];
+  // }
+
   Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'name': name,
-      'company': company,
-      'imageURL': imageURL,
-      'description': description,
-      'price': price,
-    };
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['tenVaccin'] = this.tenVaccin;
+    data['hangSanXuat'] = this.hangSanXuat;
+    data['quocGia'] = this.quocGia;
+    data['loaiVaccin'] = this.loaiVaccin;
+    data['doiTuongTiem'] = this.doiTuongTiem;
+    data['soMuiTiem'] = this.soMuiTiem;
+    data['khoangCachTiem'] = this.khoangCachTiem;
+    return data;
+  }
+  // Chuyển đổi đối tượng Map thành đối tượng VacxinModel
+  //This is static method
+  factory VacxinModel.fromJson(Map<String, dynamic> json) {
+    return VacxinModel(
+        tenVaccin : json['tenVaccin'],
+        hangSanXuat : json['hangSanXuat'],
+        quocGia : json['quocGia'],
+        loaiVaccin : json['loaiVaccin'],
+        doiTuongTiem : json['doiTuongTiem'],
+        soMuiTiem : json['soMuiTiem'],
+        khoangCachTiem : json['khoangCachTiem'],
+    );
   }
 }

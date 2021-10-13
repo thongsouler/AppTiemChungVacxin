@@ -1,5 +1,6 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
+import 'package:tiemchungvacxin/loginscreen.dart';
 
 import 'homescreen.dart';
 
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget{
     // TODO: implement build
     return MaterialApp(
       home: Scaffold(
-        body: HomeScreen(),
+        body: LoginPage(),
       ),
     );
 

@@ -1,15 +1,13 @@
-
 import 'package:flutter/material.dart';
-import 'package:tiemchungvacxin/covid_statistic/country_statistic.dart';
-import 'package:tiemchungvacxin/covid_statistic/service.dart';
 import 'package:http/http.dart' as http;
+import 'package:tiemchungvacxin/pages/DVTCScreen.dart';
+import 'package:tiemchungvacxin/pages/dangkytiemchung.dart';
+import 'package:tiemchungvacxin/pages/danhmucDVTC.dart';
 import 'package:tiemchungvacxin/pages/danhmucvacxin.dart';
+import 'package:tiemchungvacxin/pages/danhmucvacxin1.dart';
 import 'dart:convert';
-
 import 'pages/chungnhanpage.dart';
 import 'pages/hosopage.dart';
-import 'covid_statistic/country_summary.dart';
-import 'covid_statistic/service.dart';
 
 
 
@@ -108,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 onTap: (){
                                   Navigator.of(context).push(
                                       MaterialPageRoute(
-                                          builder: (context) => MyAp(),
+                                          builder: (context) => DangKyTiemChung(),
                                       )
                                   );
                                 },
@@ -190,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                   InkWell(
                                     onTap: (){
                                       Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => MyAp(),
+                                        MaterialPageRoute(builder: (BuildContext context) => VacxinScreen(),
 
                                         )
                                       );
@@ -225,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => MyAp(),
+                                        MaterialPageRoute(builder: (BuildContext context) => DVTCScreen(),
 
                                         )
                                     );
@@ -258,7 +256,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => MyAp()
+                                        MaterialPageRoute(builder: (BuildContext context) => DanhMucDVTC()
 
                                         )
                                     );
@@ -291,7 +289,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => MyAp(),
+                                        MaterialPageRoute(builder: (BuildContext context) => HoSoPage(),
 
                                         )
                                     );
