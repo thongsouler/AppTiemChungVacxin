@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiemchungvacxin/pages/DVTC.dart';
 
 class DangKyTiemChung extends StatefulWidget {
   @override
@@ -25,20 +26,40 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  Widget _buildName() {
-    return TextFormField(
-      initialValue: 'Nguyễn Văn A',
-      decoration: InputDecoration(labelText: 'Họ và tên'),
-      maxLength: 50,
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Bắt buộc nhập họ tên';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        _name = value;
-      },
+  Widget _buildNameDVTC() {
+    return Row(
+      children: <Widget>[
+        Text("ĐVTC"),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            padding: EdgeInsets.only(left: 16, right: 16),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15)
+            ),
+            child: Expanded(
+              child: DropdownButton(
+                hint: Text('Đơn vị tiêm chủng'),
+                value: valueDoiTuongTiem,
+                onChanged: (newValue){
+                  setState(() {
+                    valueDoiTuongTiem = newValue;
+                  });
+                },
+                items: doiTuongUuTien.map((value){
+                  return DropdownMenuItem(
+                      value: value,
+                      child: Text(value)
+                  );
+
+                }).toList(),
+
+              ),
+            ),
+          ),
+        ),
+      ],
+
     );
   }
 
@@ -129,6 +150,42 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
 
     );
   }
+  Widget _buildDVTC() {
+    return Row(
+      children: <Widget>[
+        Text("Đơn vị tiêm chủng"),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            padding: EdgeInsets.only(left: 16, right: 16),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15)
+            ),
+            child: Expanded(
+              child: DropdownButton(
+                hint: Text('Đơn vị tiêm chủng'),
+                value: valueDoiTuongTiem,
+                onChanged: (newValue){
+                  setState(() {
+                    valueDoiTuongTiem = newValue;
+                  });
+                },
+                items: doiTuongUuTien.map((value){
+                  return DropdownMenuItem(
+                      value: value,
+                      child: Text(value)
+                  );
+
+                }).toList(),
+
+              ),
+            ),
+          ),
+        ),
+      ],
+
+    );
+  }
 
 
   @override
@@ -143,7 +200,7 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                _buildName(),
+                _buildNameDVTC(),
                 _buildCMND(),
                 _buildPhoneNumber(),
                 _buildDoiTuong(),
