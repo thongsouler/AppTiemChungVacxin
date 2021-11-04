@@ -4,8 +4,8 @@ class VacxinModel {
   String quocGia;
   String loaiVaccin;
   String doiTuongTiem;
-  int soMuiTiem;
-  int khoangCachTiem;
+  // int soMuiTiem;
+  // int khoangCachTiem;
 
   VacxinModel(
       {this.tenVaccin,
@@ -13,8 +13,9 @@ class VacxinModel {
         this.quocGia,
         this.loaiVaccin,
         this.doiTuongTiem,
-        this.soMuiTiem,
-        this.khoangCachTiem});
+        // this.soMuiTiem,
+        // this.khoangCachTiem
+      });
 
   // VacxinModel.fromJson(Map<String, dynamic> json) {
   //   tenVaccin = json['tenVaccin'];
@@ -33,8 +34,8 @@ class VacxinModel {
     data['quocGia'] = this.quocGia;
     data['loaiVaccin'] = this.loaiVaccin;
     data['doiTuongTiem'] = this.doiTuongTiem;
-    data['soMuiTiem'] = this.soMuiTiem;
-    data['khoangCachTiem'] = this.khoangCachTiem;
+    // data['soMuiTiem'] = this.soMuiTiem;
+    // data['khoangCachTiem'] = this.khoangCachTiem;
     return data;
   }
   // Chuyển đổi đối tượng Map thành đối tượng VacxinModel
@@ -46,8 +47,8 @@ class VacxinModel {
         quocGia : json['quocGia'],
         loaiVaccin : json['loaiVaccin'],
         doiTuongTiem : json['doiTuongTiem'],
-        soMuiTiem : json['soMuiTiem'],
-        khoangCachTiem : json['khoangCachTiem'],
+        // soMuiTiem : json['soMuiTiem'],
+        // khoangCachTiem : json['khoangCachTiem'],
     );
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:tiemchungvacxin/model/userModel.dart';
 
 
 class HoSoPage extends StatelessWidget {
   @override
+
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
@@ -52,7 +54,7 @@ class HoSoPage extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    'Hồ Sỹ Thông',
+                    "${user.name}",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
@@ -85,77 +87,84 @@ class HoSoPage extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     SizedBox(
-                                      height: 80,
+                                      height: 90,
                                     ),
                                     Text(
-                                      'Jhone Doe',
+                                      'CMND: ${user.cMND}',
                                       style: TextStyle(
                                         color: Color.fromRGBO(39, 105, 171, 1),
-                                        fontSize: 37,
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    Text(
+                                      'SDT: ${user.phoneNumber}',
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(39, 105, 171, 1),
+                                        fontSize: 20,
                                       ),
                                     ),
                                     SizedBox(
                                       height: 5,
                                     ),
-                                    Row(
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.center,
-                                      children: [
-                                        Column(
-                                          children: [
-                                            Text(
-                                              'Orders',
-                                              style: TextStyle(
-                                                color: Colors.grey[700],
-                                                fontSize: 25,
-                                              ),
-                                            ),
-                                            Text(
-                                              '10',
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    39, 105, 171, 1),
-                                                fontSize: 25,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                            horizontal: 25,
-                                            vertical: 8,
-                                          ),
-                                          child: Container(
-                                            height: 50,
-                                            width: 3,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                              BorderRadius.circular(100),
-                                              color: Colors.grey,
-                                            ),
-                                          ),
-                                        ),
-                                        Column(
-                                          children: [
-                                            Text(
-                                              'Pending',
-                                              style: TextStyle(
-                                                color: Colors.grey[700],
-                                                fontSize: 25,
-                                              ),
-                                            ),
-                                            Text(
-                                              '1',
-                                              style: TextStyle(
-                                                color: Color.fromRGBO(
-                                                    39, 105, 171, 1),
-                                                fontSize: 25,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    )
+                                    // Row(
+                                    //   mainAxisAlignment:
+                                    //   MainAxisAlignment.center,
+                                    //   children: [
+                                    //     Column(
+                                    //       children: [
+                                    //         Text(
+                                    //           'Orders',
+                                    //           style: TextStyle(
+                                    //             color: Colors.grey[700],
+                                    //             fontSize: 25,
+                                    //           ),
+                                    //         ),
+                                    //         Text(
+                                    //           '10',
+                                    //           style: TextStyle(
+                                    //             color: Color.fromRGBO(
+                                    //                 39, 105, 171, 1),
+                                    //             fontSize: 25,
+                                    //           ),
+                                    //         ),
+                                    //       ],
+                                    //     ),
+                                    //     Padding(
+                                    //       padding: const EdgeInsets.symmetric(
+                                    //         horizontal: 25,
+                                    //         vertical: 8,
+                                    //       ),
+                                    //       child: Container(
+                                    //         height: 50,
+                                    //         width: 3,
+                                    //         decoration: BoxDecoration(
+                                    //           borderRadius:
+                                    //           BorderRadius.circular(100),
+                                    //           color: Colors.grey,
+                                    //         ),
+                                    //       ),
+                                    //     ),
+                                    //     Column(
+                                    //       children: [
+                                    //         Text(
+                                    //           'Pending',
+                                    //           style: TextStyle(
+                                    //             color: Colors.grey[700],
+                                    //             fontSize: 25,
+                                    //           ),
+                                    //         ),
+                                    //         Text(
+                                    //           '1',
+                                    //           style: TextStyle(
+                                    //             color: Color.fromRGBO(
+                                    //                 39, 105, 171, 1),
+                                    //             fontSize: 25,
+                                    //           ),
+                                    //         ),
+                                    //       ],
+                                    //     ),
+                                    //   ],
+                                    // )
                                   ],
                                 ),
                               ),
@@ -202,7 +211,7 @@ class HoSoPage extends StatelessWidget {
                             height: 20,
                           ),
                           Text(
-                            'My Orders',
+                            'Lịch sử tiêm',
                             style: TextStyle(
                               color: Color.fromRGBO(39, 105, 171, 1),
                               fontSize: 27,

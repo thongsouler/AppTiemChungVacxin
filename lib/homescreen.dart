@@ -9,7 +9,7 @@ import 'package:tiemchungvacxin/pages/danhmucvacxin1.dart';
 import 'dart:convert';
 import 'pages/chungnhanpage.dart';
 import 'pages/hosopage.dart';
-
+import 'package:tiemchungvacxin/model/userModel.dart';
 
 
 
@@ -22,6 +22,8 @@ class _HomeScreenState extends State<HomeScreen>{
   Widget build(BuildContext context) {
     // TODO: implement build
     var size = MediaQuery.of(context).size;
+    String name = user.name;
+    int CMND = user.cMND;
 
 
     return Container(
@@ -64,7 +66,7 @@ class _HomeScreenState extends State<HomeScreen>{
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text('Nguyễn Văn A \n 18886888 ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, ))
+                                Text('$name \n $CMND  ', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, ))
                               ],
                             )
 
@@ -290,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => HoSoPage(),
+                                        MaterialPageRoute(builder: (BuildContext context) => DanhMucVacxin(),
 
                                         )
                                     );

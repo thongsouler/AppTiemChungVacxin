@@ -1,5 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:tiemchungvacxin/model/dktcModel.dart';
+import 'package:tiemchungvacxin/model/global.dart';
+import 'package:tiemchungvacxin/model/vacxinModel.dart';
 import 'package:tiemchungvacxin/pages/DVTC.dart';
+import 'package:tiemchungvacxin/model/userModel.dart';
+import 'package:http/http.dart' as http;
+
+import 'danhmucvacxin.dart';
+
 
 class DangKyTiemChung extends StatefulWidget {
   @override
@@ -9,20 +19,30 @@ class DangKyTiemChung extends StatefulWidget {
 }
 
 class DangKyTiemChungState extends State<DangKyTiemChung> {
-  String _name;
-  String _DOB;
-  String _CMT;
-  String _phoneNumber;
-  String _doituong;
+  String muiTiemThu;
+  dktcModel _model;
+
+
 
   List doiTuongUuTien = [
-    "Người làm việc trong cs y tế",
-    "Người tham gia chống dịch",
-    "Lực lượng Công An",
-    "Giáo viên,Sinh viên",
+    "1. Người làm việc trong cs y tế",
+    "2. Người tham gia chống dịch",
+    "3. Giáo viên,Sinh viên ",
+    "4. Không có",
 
   ];
+  List buoiTiem = [
+    "Buổi sáng",
+    "Buổi chiều"
+  ];
+  List muiTiem = [
+    "Mũi 1",
+    "Mũi 2",
+    "Mũi 3"
+  ];
   String valueDoiTuongTiem ;
+  String valuebuoiTiem;
+  String valuemuiTiem;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -39,14 +59,86 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
             ),
             child: Expanded(
               child: DropdownButton(
-                hint: Text('Đơn vị tiêm chủng'),
+                hint: Text('Trạm y tế Phường Việt Hưng'),
                 value: valueDoiTuongTiem,
                 onChanged: (newValue){
                   setState(() {
-                    valueDoiTuongTiem = newValue;
+                    valueDoiTuongTiem = "Trạm y tế Phường Việt Hưng";
                   });
                 },
-                items: doiTuongUuTien.map((value){
+                // items: doiTuongUuTien.map((value){
+                //   return DropdownMenuItem(
+                //       value: value,
+                //       child: Text(value)
+                //   );
+                //
+                // }).toList(),
+
+              ),
+            ),
+          ),
+        ),
+      ],
+
+    );
+  }
+  Widget _buildmuiTiem() {
+    return Row(
+      children: <Widget>[
+        Text("Mũi tiêm"),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            padding: EdgeInsets.only(left: 16, right: 16),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15)
+            ),
+            child: Expanded(
+              child: DropdownButton(
+                value: valuemuiTiem,
+                onChanged: (newValue){
+                  setState(() {
+                    valuemuiTiem = newValue;
+                  });
+                },
+
+                items: muiTiem.map((value){
+                  return DropdownMenuItem(
+                      value: value,
+                      child: Text(value)
+                  );
+
+                }).toList(),
+
+              ),
+            ),
+          ),
+        ),
+      ],
+
+    );
+  }
+  Widget _buildbuoiTiem() {
+    return Row(
+      children: <Widget>[
+        Text("Buổi tiêm"),
+        Padding(
+          padding: const EdgeInsets.all(10),
+          child: Container(
+            padding: EdgeInsets.only(left: 16, right: 16),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15)
+            ),
+            child: Expanded(
+              child: DropdownButton(
+                value: valuebuoiTiem,
+                onChanged: (newValue){
+                  setState(() {
+                    valuebuoiTiem = newValue;
+                  });
+                },
+
+                items: buoiTiem.map((value){
                   return DropdownMenuItem(
                       value: value,
                       child: Text(value)
@@ -63,57 +155,28 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
     );
   }
 
-  Widget _buildDOB() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Ngày sinh'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Bắt buộc có Ngày sinh';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        _DOB = value;
-      },
+  Widget _buildName() {
+    return Container(
+      child: Text("", style: TextStyle(fontSize: 22, color: Colors.deepPurple),),
     );
   }
+  // Widget _buildCMND() {
+  //   return TextFormField(
+  //     decoration: InputDecoration(labelText: 'Số CMND/CCCD'),
+  //     validator: (String value) {
+  //       if (value.isEmpty) {
+  //         return 'Bắt buộc có số CMT';
+  //       }
+  //       return null;
+  //     },
+  //     onSaved: (String value) {
+  //       _CMT = value;
+  //     },
+  //   );
+  // }
 
-  Widget _buildCMND() {
-    return TextFormField(
-      decoration: InputDecoration(labelText: 'Số CMND/CCCD'),
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Bắt buộc có số CMT';
-        }
-        return null;
-      },
-      onSaved: (String value) {
-        _CMT = value;
-      },
-    );
-  }
 
 
-  Widget _buildPhoneNumber() {
-    return TextFormField(
-      decoration: InputDecoration(
-          labelText: 'Số điện thoại',
-
-      ),
-      keyboardType: TextInputType.phone,
-      initialValue: '0868888666',
-      validator: (String value) {
-        if (value.isEmpty) {
-          return 'Bắt buộc có SDT';
-        }
-
-        return null;
-      },
-      onSaved: (String value) {
-        _phoneNumber = value;
-      },
-    );
-  }
   Widget _buildDoiTuong() {
     return Row(
       children: <Widget>[
@@ -200,31 +263,38 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                _buildName(),
                 _buildNameDVTC(),
-                _buildCMND(),
-                _buildPhoneNumber(),
+                _buildmuiTiem(),
+                _buildbuoiTiem(),
                 _buildDoiTuong(),
                 SizedBox(height: 100),
                 RaisedButton(
-                  child: Text(
-                    'Submit',
-                    style: TextStyle(color: Colors.blue, fontSize: 16),
-                  ),
-                  onPressed: () {
-                    if (!_formKey.currentState.validate()) {
-                      return;
-                    }
+                    color: Colors.green,
+                    elevation: 4,
+                    child: Text(
+                      'Đăng ký',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    onPressed: (){}),
+                RaisedButton(
+                    color: Colors.redAccent,
+                    elevation: 4,
+                    child: Text(
+                      'Lịch sử',
+                      style: TextStyle(color: Colors.white, fontSize: 16),
+                    ),
+                    onPressed: (){
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (BuildContext context) => DanhMucVacxin(),
 
-                    _formKey.currentState.save();
+                          )
+                      );
+                    })
 
-                    print(_name);
-                    print(_DOB);
-                    print(_phoneNumber);
-                    print(_CMT);
 
-                    //Send to API
-                  },
-                )
+
+
               ],
             ),
           ),
@@ -232,4 +302,7 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
       ),
     );
   }
+
+
 }
+

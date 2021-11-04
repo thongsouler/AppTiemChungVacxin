@@ -27,7 +27,7 @@ class VacxinList extends StatelessWidget{
                 itemBuilder: (context, index){
                 return GestureDetector(
                   onTap: (){
-                    showDialogFunc(context, vacxins[index].tenVaccin, vacxins[index].hangSanXuat,vacxins[index].quocGia,vacxins[index].khoangCachTiem, vacxins[index].doiTuongTiem);
+                    showDialogFunc(context, vacxins[index].tenVaccin, vacxins[index].hangSanXuat,vacxins[index].quocGia, vacxins[index].doiTuongTiem);
                   },
                   //Card which holds layout of listview item
                   child: Card(
@@ -74,7 +74,7 @@ class VacxinList extends StatelessWidget{
   }
 }
 //This is a block of Model Dialog
-showDialogFunc(context, tenVaccin, hangSanXuat , quocGia, khoangCachTiem, doiTuongTiem) {
+showDialogFunc(context, tenVaccin, hangSanXuat , quocGia, doiTuongTiem) {
   return showDialog(
     context: context,
     builder: (context) {
@@ -92,6 +92,7 @@ showDialogFunc(context, tenVaccin, hangSanXuat , quocGia, khoangCachTiem, doiTuo
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
+
                 ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: Image.asset(
@@ -122,7 +123,8 @@ showDialogFunc(context, tenVaccin, hangSanXuat , quocGia, khoangCachTiem, doiTuo
                       'Hãng sản xuất: $hangSanXuat'
                       + '\nQuốc gia: $quocGia'
                           + '\nĐối tượng tiêm: $doiTuongTiem'
-                          + '\nKhoảng cách tiêm: $khoangCachTiem',
+                          // + '\nKhoảng cách tiêm: $khoangCachTiem'
+                      ,
                       maxLines: 5,
                       style: TextStyle(fontSize: 15, color: Colors.lightBlue),
                       textAlign: TextAlign.center,
@@ -133,6 +135,7 @@ showDialogFunc(context, tenVaccin, hangSanXuat , quocGia, khoangCachTiem, doiTuo
             ),
           ),
         ),
+
       );
     },
   );
@@ -168,7 +171,7 @@ class _VacxinScreenState extends State<VacxinScreen>{
     print('dang test');
     final response = await client.get(Uri.parse(URL_VACXIN));
     print('dang test');
-    print(response);
+    print(response.body);
     if (response.statusCode == 200) {
       print('dang test');
       Map<String, dynamic> mapResponse = json.decode(response.body);
