@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget{
     // TODO: implement build
     return MaterialApp(
       home: Scaffold(
-        body: HomeScreen(),
+        body: LoginPage(),
       ),
     );
 

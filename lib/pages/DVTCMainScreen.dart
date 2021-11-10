@@ -273,7 +273,7 @@ class _DVTCMainScreenState extends State<DVTCMainScreen>{
         return [];
       }
     } else {
-      throw Exception('Failed to load data');
+      throw Exception('Failed to load data!!');
     }
   }
 }

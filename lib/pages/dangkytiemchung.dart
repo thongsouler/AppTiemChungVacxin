@@ -5,7 +5,6 @@ import 'package:tiemchungvacxin/model/dktcModel.dart';
 import 'package:tiemchungvacxin/model/global.dart';
 import 'package:tiemchungvacxin/model/vacxinModel.dart';
 import 'package:tiemchungvacxin/pages/DVTC.dart';
-import 'package:tiemchungvacxin/model/userModel.dart';
 import 'package:http/http.dart' as http;
 
 import 'danhmucvacxin.dart';
