@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:tiemchungvacxin/api/dvtcNetwork.dart';
 import 'package:tiemchungvacxin/model/dvtcModel.dart';
-import 'package:tiemchungvacxin/model/vacxinModel.dart';
-import 'package:tiemchungvacxin/api/vacxinNetwork.dart';
 
 
 // Future<ProductDataModel> fetchAlbum() async {
