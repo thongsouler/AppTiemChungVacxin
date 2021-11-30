@@ -156,7 +156,17 @@ class _DVTCScreenState extends State<DVTCScreen>{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Danh muc vacxin'),
+        title: Text("Danh sách Đơn vị tiêm chủng"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.purple, Colors.blue],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+              )
+          ),
+        ),
       ),
       body: FutureBuilder(
         future: fetchDVTCinDistrict(http.Client()),

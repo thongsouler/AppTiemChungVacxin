@@ -213,9 +213,19 @@ class _DVTCScreenState extends State<DVTCScreen>{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Cac don vi tiem chung'),
-      ),
+        appBar: AppBar(
+          title: Text("Danh sách Đơn vị tiêm chủng"),
+          centerTitle: true,
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.purple, Colors.blue],
+                  begin: Alignment.bottomRight,
+                  end: Alignment.topLeft,
+                )
+            ),
+          ),
+        ),
       body: FutureBuilder(
         future: fetchDVTCs(http.Client()),
         builder: (context, snapshot){

@@ -5,6 +5,7 @@ import 'package:tiemchungvacxin/pages/dangkytiemchung.dart';
 import 'package:tiemchungvacxin/pages/danhmucDVTC.dart';
 import 'package:tiemchungvacxin/pages/danhmucvacxin.dart';
 import 'package:tiemchungvacxin/pages/danhmucvacxin1.dart';
+import 'package:tiemchungvacxin/pages/thongke.dart';
 import 'dart:convert';
 import 'pages/chungnhanpage.dart';
 import 'pages/hosopage.dart';
@@ -258,7 +259,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                 InkWell(
                                   onTap: (){
                                     Navigator.of(context).push(
-                                        MaterialPageRoute(builder: (BuildContext context) => DanhMucDVTC()
+                                        MaterialPageRoute(builder: (BuildContext context) => HomePage()
 
                                         )
                                     );
@@ -281,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen>{
                                       )
                                   ),
                                 ),
-                                Center(child: Text("Tin tức",style: TextStyle(fontWeight: FontWeight.bold,),),),
+                                Center(child: Text("Thống kê",style: TextStyle(fontWeight: FontWeight.bold,),),),
 
                               ],)
                             ),

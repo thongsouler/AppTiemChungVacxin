@@ -58,7 +58,7 @@ class DangKyTiemChungState extends State<DangKyTiemChung> {
             ),
             child: Expanded(
               child: DropdownButton(
-                hint: Text('Trạm y tế Phường Việt Hưng'),
+                hint: Text('Trạm y tế Phường Thượng Thanh'),
                 value: valueDoiTuongTiem,
                 onChanged: (newValue){
                   setState(() {

@@ -154,7 +154,17 @@ class _VacxinScreenState extends State<VacxinScreen>{
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text('Danh muc vacxin'),
+        title: Text("Danh mục Vacxin"),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.purple, Colors.blue],
+                begin: Alignment.bottomRight,
+                end: Alignment.topLeft,
+              )
+          ),
+        ),
       ),
       body: FutureBuilder(
         future: fetchVacxins(http.Client()),
